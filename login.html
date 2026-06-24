@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login | OM Trading Company</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f4c81,#1e3a8a);
+}
+
+.login-box{
+width:420px;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.logo{
+text-align:center;
+font-size:30px;
+font-weight:700;
+color:#0f4c81;
+margin-bottom:10px;
+}
+
+.logo span{
+color:#16a34a;
+}
+
+.subtitle{
+text-align:center;
+margin-bottom:30px;
+color:#6b7280;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input{
+width:100%;
+padding:14px;
+border:1px solid #d1d5db;
+border-radius:8px;
+font-size:15px;
+}
+
+input:focus{
+outline:none;
+border-color:#0f4c81;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+font-size:14px;
+}
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+background:#0f4c81;
+color:white;
+font-size:16px;
+font-weight:600;
+border-radius:8px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#09345b;
+}
+
+.error{
+margin-top:15px;
+color:red;
+text-align:center;
+display:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-box">
+
+<div class="logo">
+OM <span>Trading</span>
+</div>
+
+<div class="subtitle">
+Admin Control Panel Login
+</div>
+
+<form id="loginForm">
+
+<div class="form-group">
+<label>Username</label>
+<input type="text" id="username" required>
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" id="password" required>
+</div>
+
+<div class="row">
+<label>
+<input type="checkbox">
+ Remember Me
+</label>
+</div>
+
+<button type="submit" class="btn">
+Login
+</button>
+
+<div class="error" id="errorMsg">
+Invalid Username or Password
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const username =
+document.getElementById("username").value;
+
+const password =
+document.getElementById("password").value;
+
+/* Temporary Login */
+
+if(username==="admin" && password==="12345"){
+
+window.location.href="dashboard.html";
+
+}else{
+
+document.getElementById("errorMsg").style.display="block";
+
+}
+
+/* Backend Login Later
+
+const response = await fetch(
+"http://localhost:5000/api/auth/login",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+username,
+password
+})
+});
+
+*/
+
+});
+
+</script>
+
+</body>
+</html>
