@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OM Trading Company | Agricultural Procurement & Trading</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+/* NAVBAR */
+
+header{
+    background:#ffffff;
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    color:#0f4c81;
+}
+
+.logo span{
+    color:#16a34a;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#1f2937;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#0f4c81;
+}
+
+.btn-login{
+    background:#0f4c81;
+    color:white;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.btn-login:hover{
+    background:#09345b;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+    linear-gradient(rgba(15,76,129,.85),rgba(15,76,129,.85)),
+    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+}
+
+.hero-content{
+    width:90%;
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-btns{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    text-decoration:none;
+    background:#16a34a;
+    color:white;
+    padding:15px 35px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.secondary-btn{
+    text-decoration:none;
+    background:white;
+    color:#0f4c81;
+    padding:15px 35px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* ABOUT */
+
+.section{
+    padding:90px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    color:#0f4c81;
+    margin-bottom:20px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#6b7280;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#0f4c81;
+    margin-bottom:15px;
+}
+
+/* SERVICES */
+
+.services{
+    background:#eef4fb;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.service-card h3{
+    color:#0f4c81;
+    margin-bottom:15px;
+}
+
+/* STATS */
+
+.stats{
+    background:#0f4c81;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:50px;
+}
+
+.stat p{
+    margin-top:10px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.contact-box h3{
+    color:#0f4c81;
+    margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero p{
+font-size:17px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>AgroTrade Frontend</h2>
+
+<button onclick="checkBackend()">
+    Connect Backend
+</button>
+
+<p id="result"></p>
+
+<!-- Tumhari website ka original code yahan se start hoga -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+OM <span>Trading Company</span>
+</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#stats">Statistics</a>
+<a href="#contact">Contact</a>
+</div>
+
+<a href="login.html" class="btn-login">
+Admin Login
+</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Trusted Agricultural Procurement Partner</h1>
+
+<p>
+OM Trading Company provides professional crop procurement,
+farmer registration, billing solutions and agricultural trading
+services with transparency, trust and efficiency.
+</p>
+
+<div class="hero-btns">
+<a href="register.html" class="primary-btn">
+Farmer Registration
+</a>
+
+<a href="#about" class="secondary-btn">
+Learn More
+</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="about">
+
+<h2 class="section-title">
+About OM Trading Company
+</h2>
+
+<p class="section-subtitle">
+We connect farmers with efficient procurement services while ensuring
+fair pricing, transparent transactions and professional record management.
+</p>
+
+<div class="about-grid">
+
+<div class="card">
+<h3>Trusted Procurement</h3>
+<p>
+Reliable agricultural procurement system for farmers and buyers.
+</p>
+</div>
+
+<div class="card">
+<h3>Fast Payments</h3>
+<p>
+Quick processing and secure payment management for registered farmers.
+</p>
+</div>
+
+<div class="card">
+<h3>Digital Records</h3>
+<p>
+Modern farmer registration and billing management system.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section services" id="services">
+
+<h2 class="section-title">
+Our Services
+</h2>
+
+<p class="section-subtitle">
+Professional solutions designed for modern agricultural trading.
+</p>
+
+<div class="service-grid">
+
+<div class="service-card">
+<h3>Crop Procurement</h3>
+<p>Purchase and management of agricultural produce.</p>
+</div>
+
+<div class="service-card">
+<h3>Farmer Registration</h3>
+<p>Digital registration and farmer profile management.</p>
+</div>
+
+<div class="service-card">
+<h3>GST Billing</h3>
+<p>Automatic invoice and GST-enabled bill generation.</p>
+</div>
+
+<div class="service-card">
+<h3>Data Analytics</h3>
+<p>Farmer and procurement performance reporting.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section stats" id="stats">
+
+<div class="stats-grid">
+
+<div class="stat">
+<h2>500+</h2>
+<p>Registered Farmers</p>
+</div>
+
+<div class="stat">
+<h2>1000+</h2>
+<p>Crop Transactions</p>
+</div>
+
+<div class="stat">
+<h2>99%</h2>
+<p>Payment Success Rate</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Support</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<h2 class="section-title">
+Contact Us
+</h2>
+
+<div class="contact-box">
+
+<h3>OM Trading Company</h3>
+
+<p><strong>Address:</strong> Gurugram, Haryana, India</p>
+
+<br>
+
+<p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+
+<br>
+
+<p><strong>Email:</strong> info@omtradingcompany.com</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 OM Trading Company. All Rights Reserved.
+
+</footer>
+
+<script>
+async function checkBackend() {
+
+    const response = await fetch(
+        "http://localhost:5000/api/test"
+    );
+
+    const data = await response.json();
+
+    document.getElementById("result").innerText =
+        data.message;
+}
+
+</script>
+
+</body>
+</html>
